@@ -1,0 +1,396 @@
+/* General reset and body setup */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: white;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  font-family:'poppins';
+}
+
+/* Navigation Bar */
+
+nav {
+  position: absolute;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  background-color: black;
+  opacity: 0.7;
+  padding: auto;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: -1px;
+  justify-content: space-between;
+}
+
+nav li, nav a {
+  display: flex;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  margin-right: 5px;
+  gap: 10px !important;
+  font-size: 15px "space grotesk",arial, sans-serif !important;
+  
+}
+.box{
+  display: inline-block;
+      padding: 6px 8px;
+      background-color: #555; /* Dark gray */
+      
+      font-weight: bold;
+      font-family: Arial, sans-serif;
+      font-size: 18px;
+      border-radius: 18px;
+}
+nav img {
+  height: 50px;
+}
+
+/* Search Bar */
+
+.search, .s2, .d {
+ 
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 5px;
+ border-radius: 10px;
+}
+
+.s2 {
+  width: 400px;
+  height: 25px;
+  margin-left: 300px;
+  margin-top: 30px;
+}
+
+.d {
+  background-color: lightgrey;
+  border-radius: 5px;
+  color: gray;
+  border: 1px solid lightgrey;
+}
+
+.d::placeholder {
+  color: #5f5e5e;
+}
+
+button {
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  height: 38px;
+  width: 76px;
+  margin-right: 90px;
+  margin-top: 31px;
+ border-radius: 0 20px 20px 0;
+  margin-left: -16px;
+}
+
+h3 {
+  background-color: lightgray;
+  height: 100px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-left: 20px;
+}
+
+/* Banner */
+.banner {
+  font-size: xx-large;
+  font-weight: bolder;
+  text-align: left;
+  color: orangered;
+  background-image: url("weather2.jpj.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 200px;
+  padding: 100px;
+  margin-top: 50px;
+
+}
+
+.banner h2 {
+  font-size: 30px;
+  color: white;
+}
+
+/* Map & Weather Info */
+#map {
+  height: 250px;
+  width: 600px;
+  margin-left: 700px;
+  margin-top: -320px;
+  border-radius: 10px;
+ 
+}
+
+.weather-info {
+  margin-left: 300px;
+  color: black;
+  font-weight: bolder;
+  font-size: 20px;
+}
+
+.location {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.temp1 {
+  font-size: 35px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.description {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 13px;
+  color: #444;
+}
+
+#abc {
+  margin-left: -300px;
+  margin-top: 25px;
+  margin-bottom: 100px;
+}
+
+#month {
+  margin-left: 300px;
+  margin-top: 20px;
+  font-weight: bolder;
+  font-size: 20px;
+  color: red;
+}
+
+/* Forecast */
+.forecast-container {
+  margin-top: 30px;
+  margin-left: 580px;
+  
+}
+
+p{
+  opacity: 0.7;
+}
+
+
+.weather-day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #333;
+  text-decoration: none;
+}
+
+.date {
+  width: 100px;
+  font-weight: bold;
+  color: #333;
+}
+
+.icon {
+  font-size: 24px;
+  width: 30px;
+  text-align: center;
+}
+
+.temp {
+  font-size: 14px;
+  color: #333;
+}
+
+.condition {
+  font-size: 12px;
+  color: #777;
+  width: 100px;
+  text-align: right;
+}
+
+#g {
+  margin-top: 30px;
+  margin-right: 300px;
+  font-size: larger;
+  font-weight: bolder;
+  text-align: right;
+  opacity: 2;
+}
+
+/* Hourly Forecast */
+canvas#hourly {
+  width: 500px !important;
+  height: 300px !important;
+  margin-left: 200px;
+  margin-top: -290px;
+ font-weight: bolder;
+ color: black;
+ border-color: black;
+
+}
+
+#h {
+  font-weight: bolder;
+ 
+  margin-top: -340px;
+  margin-bottom: 330px;
+  margin-left: 210px;
+  font-size: 20px;
+}
+
+.extra-info {
+  display: flex;
+  margin-left: 190px;
+  gap: 10px;
+  font-size: 12px;
+
+}
+
+
+.extra-info div {
+  width: 60px;
+}
+
+/* Footer */
+.footer {
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+.footer a {
+  text-decoration: none;
+  color: black;
+  opacity: 0.7; 
+}
+.footer li{
+  list-style-type: none;
+  gap: 20px;
+  font-size: 15px;
+
+}
+
+.footercontainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  text-decoration: none;
+}
+
+.footercolumn, .footertech, .footerterms, .footercompany, .contact {
+  font-weight: bold;
+  font-size: large;
+  text-decoration: none;
+  
+  }
+h6{
+  font-weight: bolder;
+  font-size: 18px;
+  margin-left: 40px;
+  margin-top: 30px;
+}
+
+.footercompany {
+  max-width: 400px;
+}
+
+.appdownload {
+  margin-top: 100px;
+}
+
+.download {
+  color: black;
+  font-weight: bold;
+  opacity: 2;
+  margin-top: -100px;
+  
+}
+
+.batge {
+  margin-left: 800px;
+  margin-top: -90px;
+ 
+  
+}
+
+.rule {
+  font-weight: bolder;
+  font-size: 20px;
+  margin-left: 0;
+  opacity: 0.7;
+}
+
+.icons {
+  margin-left: 800px;
+  display: flex;
+  gap: 60px;
+}
+
+.icons img {
+  margin-right: 20px;
+}
+.footer ul{
+  margin-top: -10px;
+  margin-right: 50px;
+}
+.Subscription {
+  margin-top: 10px;
+  margin-left: 200px;
+}
+.Subscription ul{
+  margin-top: 10px;
+margin-left: -40px;
+}
+.tech{
+  margin-left: 40px;
+  font-size: 20px;
+
+}
+.tech ul{
+  margin-left: -40px;
+
+}
+.company{
+ margin-right: 70px;
+  margin-top: -240px;
+  margin-left: 1000px;
+}
+.terms{
+ margin-left: 195px;
+ font-size: 20px;
+  
+}
+.terms ul{
+  margin-left: -40px;
+}
+.contact {
+  margin-left: 290px;
+  font-size: 20px;
+  margin-top: 20px;
+}
+.store-buttons{
+  
+  height: 40px;
+ 
+
+}
+

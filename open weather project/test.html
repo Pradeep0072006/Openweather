@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Weather Forecast-Open Weathermap</title>
+  <link rel="icon" href="title2-removebg-preview.png" type="image/x-icon" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="test.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+ 
+  
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <ul>
+      <li><img src="weather 2.jpg" alt="logo" /></li>
+      <li><input class="search"  type="text" placeholder="Weather in your city..."/></li>
+      <li><a href="https://openweathermap.org/guide" target="_self">Guide</a></li>
+      <li><a href="https://openweathermap.org/api" target="_self">API</a></li>
+      <li><a href="https://dashboard.openweather.co.uk/" target="_self">Dashboard</a></li>
+      <li><a href="https://home.openweathermap.org/marketplace" target="_self">Marketplace</a></li>
+      <li><a href="https://openweathermap.org/price" target="_self">Pricing</a></li>
+      <li><a href="https://openweathermap.org/weathermap" target="_self">Maps</a></li>
+      <li><a href="https://openweathermap.org/our-initiatives" target="_self">Our Initiatives</a></li>
+      <li><a href="https://openweathermap.org/examples" target="_self">Partners</a></li>
+      <li><a href="https://openweather.co.uk/blog/category/weather" target="_self">Blog</a></li>
+      <li class="box"><a href="https://openweather.co.uk/" target="_self" >For Business</a></li>
+      <li><a href="https://openweathermap.org/support-centre" target="_self">Support Center</a></li>
+      <li><a href="https://openweathermap.org/home/sign_in" target="_self">Sign In</a></li>
+      
+    </ul>
+  </nav>
+
+  <!-- BANNER -->
+  <div class="banner">
+    <h1>OpenWeather</h1>
+    <h2>Weather forecasts, nowcasts, and history in a fast and elegant way</h2>
+  </div>
+
+  <!-- SEARCH BAR -->
+  <h3>
+    <input class="s2" type="text" placeholder="Search city" />
+    <button class="button">Search</button>
+    <input class="d" type="text" placeholder="Different Weather?" />
+    <input type="text" placeholder="Metric: °C, m/s" style="border-radius: 5px; width: 100px;" />
+    <input type="text" placeholder="Imperial: °F, mph" style="border-radius: 5px; width: 100px;" />
+  </h3>
+
+  <!-- TIME + MAP -->
+  <h4 id="month"></h4>
+  <div id="time"></div>
+  <div class="weather-info" id="info"></div>
+  <div id="map"></div>
+  <p id="g">8 Day Forecast</p>
+
+  <!-- 8-DAY FORECAST -->
+  <div class="forecast-container">
+    <div id="forecast"></div>
+  </div>
+
+  <!-- HOURLY FORECAST -->
+  <h5 id="h">Hourly Forecast</h5>
+  <canvas id="hourly"></canvas>
+  <div class="extra-info" id="descriptionRow"></div>
+  <div class="extra-info" id="windRow"></div>
+  <div class="extra-info" id="precipRow"></div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footercontainer">
+      <div class="column">
+        <h6>Product Collection</h6>
+        <ul>
+          <li><a href="https://openweathermap.org/api#current" target="_self">Current & Forecast APIs</a></li>
+          <li><a href="https://openweathermap.org/api#history" target="_self">Historical Weather Data</a></li>
+          <li><a href="https://openweathermap.org/api#maps" target="_self">Weather Maps</a></li>
+          <li><a href="https://dashboard.openweather.co.uk/" target="_self">Weather Dashboards</a></li>
+          <li><a href="https://openweathermap.org/widgets-constructor" target="_self">Widgets</a></li>
+        </ul>
+      </div>
+
+      <div class="Subscription">
+        <h4>Subscription</h4>
+        <ul>
+          <li><a href="https://openweathermap.org/appid" target="_self">How to Start</a></li>
+          <li><a href="https://openweathermap.org/price" target="_self">Pricing</a></li>
+          <li><a href="https://home.openweathermap.org/users/sign_up" target="_self">Free Subscription</a></li>
+          <li><a href="https://openweathermap.org/faq" target="_self">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="company">
+        <h4>Company</h4>
+        <p>
+          OpenWeather is a team of IT experts and data scientists that provide historical, current, and forecasted weather data globally via fast APIs. Based in London, UK.
+        </p>
+      </div>
+
+      <div class="tech">
+        <h5>Technologies</h5>
+        <ul>
+          <li><a href="https://openweathermap.org/technology" target="_self">Our Technology</a></li>
+          <li><a href="https://openweathermap.org/accuracy-and-quality" target="_self">Weather Data Accuracy</a></li>
+          <li><a href="https://openweathermap.org/stations" target="_self">Connect Your Station</a></li>
+        </ul>
+      </div>
+
+      <div class="terms">
+        <h5>Terms & Conditions</h5>
+        <ul>
+          <li><a href="https://openweathermap.org/themes/openweathermap/assets/docs/OpenWeather_T&C_of_sale.pdf" target="_self">Sales Terms</a></li>
+          <li><a href="https://openweather.co.uk/privacy-policy" target="_self">Privacy Policy</a></li>
+          <li><a href="https://openweather.co.uk/storage/app/media/Terms/Openweather_website_terms_and_conditions_of_use.pdf" target="_self">Website Terms</a></li>
+        </ul>
+      </div>
+
+      <div class="contact">
+        <ul>
+          <li><a href="https://openweathermap.org/about-us" target="_self">About Us</a></li>
+          <li><a href="https://openweather.co.uk/blog/category/weather" target="_self">Blog</a></li>
+          <li><a href="https://openweather.co.uk/about/our-offices" target="_self">Our Offices</a></li>
+          <li><a href="https://openweather.co.uk/" target="_self">Ulla AI Assistant</a></li>
+          <li><a href="https://openweathermap.org/chat" target="_self">OpenWeather for Business</a></li>
+          <li><a href="https://home.openweathermap.org/questions" target="_self">Ask a Question</a></li>
+        </ul>
+      </div>
+
+      <div class="appdownload">
+        <p class="download">Download OpenWeather App</p>
+        <div class="store-buttons">
+          <a href="#" style="opacity: 2;"><img src="playstore.jpg" alt="Play Store" /></a>
+          <a href="#" style="opacity: 2;"><img src="appstore.jpg" alt="App Store" height="54" /></a>
+        </div>
+      </div>
+
+      <div class="batge">
+        
+        <a href="#" style="opacity: 2;"><img src="rmet.jpg" alt="RMET" height="80px" /></a>
+        <a href="#" style="opacity: 2;"><img src="cnb.jpg" alt="CNB" height="180px" /></a>
+      </div>
+
+      <h6 class="rule">
+        Supplier of Achilles UVDB community <br />
+        © 2012 — 2025 OpenWeather ® All rights reserved
+      </h6>
+
+      <div class="icons">
+        <a href="#"><img src="icon_facebook.png" alt="Facebook" height="20px" /></a>
+        <a href="#"><img src="icon_x_black.png" alt="X" height="20px" /></a>
+        <a href="#"><img src="icon_linkedin.png" alt="LinkedIn" height="20px" /></a>
+        <a href="#"><img src="https://openweathermap.org/themes/openweathermap/assets/img/owm_icons/new_medium.svg" alt="Medium" height="20px" /></a>
+        <a href="#"><img src="icon_telegram.png" alt="Telegram" height="20px" /></a>
+        <a href="#"><img src="icon_github.png" alt="GitHub" height="20px" /></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="script.js"></script> <!-- Your JS script should be saved separately if large -->
+  <script>
+    const apiKey = '2c69830ef1617a50f7077869dd8a1ccd'; 
+  const  map = L.map('map').setView([20, 0], 9) ; 
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+  }).addTo(map);
+  map.on('click', function(e) {
+    const lat = e.latlng.lat;
+    const lon = e.latlng.lng;
+    getWeather(lat, lon);
+  });
+
+  function getWeather(lat, lon) {
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+       document.getElementById('info').innerHTML = `
+  <div class="location">${data.name}, ${data.sys.country}</div>
+  <div class="temp1">🌡${data.main.temp}°C</div>
+  <div class="description">Feels like ${data.main.feels_like}°C. ${data.weather[0].description}</div>
+  <div class="details">
+    <div>💨 ${data.wind.speed} m/s</div>
+    <div>🌡 ${data.main.pressure} hPa</div>
+    <div>💧 Humidity: ${data.main.humidity}%</div>
+    <div id="abc">🌫️ Visibility: ${data.visibility / 1000} km</div>
+  </div>
+`;
+      })
+      .catch(err => {
+        document.getElementById('info').innerText = 'Error fetching weather data!';
+      });
+      
+  }
+ const now = new Date();
+const timeOptions = {
+  hour: '2-digit',
+  minute: '2-digit',
+  hour12: true
+};
+const timeString = now.toLocaleTimeString('en-US', timeOptions);
+const monthOptions = { month: 'long' };
+const monthString = now.toLocaleDateString('en-US', monthOptions);
+const finalString = `${monthString} - ${timeString}`;
+
+document.getElementById("month").innerText = finalString;
+
+
+
+       const weatherData = [
+    { temp: "23 / 16°C", condition: "light rain", icon: "🌧️" },
+    { temp: "28 / 16°C", condition: "broken clouds", icon: "⛅" },
+    { temp: "28 / 17°C", condition: "light rain", icon: "🌧️" },
+    { temp: "32 / 18°C", condition: "clear sky", icon: "☀️" },
+    { temp: "34 / 21°C", condition: "light rain", icon: "🌧️" },
+    { temp: "28 / 19°C", condition: "few clouds", icon: "🌤️" },
+    { temp: "25 / 15°C", condition: "overcast clouds", icon: "☁️" },
+    { temp: "27 / 16°C", condition: "light rain", icon: "🌧️" },
+  ];
+
+  const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+  const forecastContainer = document.getElementById("forecast");
+
+  const today = new Date();
+  for (let i = 0; i < 8; i++) {
+    const date = new Date();
+    date.setDate(today.getDate() + i);
+
+    const dayName = days[date.getDay()];
+    const monthName = months[date.getMonth()];
+    const dayNum = date.getDate();
+
+    const { temp, condition, icon } = weatherData[i];
+
+    forecastContainer.innerHTML += `
+      <div class="weather-day">
+        <div class="date">${dayName}, ${monthName} ${dayNum}</div>
+        <div class="icon">${icon}</div>
+        <div class="temp">${temp}</div>
+        <div class="condition">${condition}</div>
+      </div>
+    `;
+  }
+
+  const ctx = document.getElementById('hourly').getContext('2d');
+
+const hours = ['5pm', '6pm', '7pm', '8pm', '9pm', '10pm', '11pm', '1am'];
+const temperatures  = [23, 22, 21, 19, 17, 15.5, 15, 15];
+
+const weatherDesc = ['broken clouds', 'broken clouds', 'broken clouds', 'overcast clouds', 'overcast clouds', 'overcast clouds', 'overcast clouds', 'overcast clouds'];
+const windSpeeds = [    '7.3m/s', '7.2m/s', '6.8m/s', '5.6m/s', '5.0m/s', '4.3m/s', '3.8m/s', '3.6m/s'];
+const precipitation = ['0%', '0%', '0%', '0%', '0%', '0%', '0%', '0%'];
+
+new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: hours,
+    datasets: [{
+      label: 'Temperature',
+      data: temperatures,
+      borderColor: 'tomato',
+      backgroundColor: 'transparent',
+      tension: 0.4,
+      pointRadius: 3,
+    }]
+  },
+  options: {
+    responsive: true,
+    scales: {
+      y: {
+        min: 10,
+        max: 30,
+        ticks: {
+          callback: value => `${value}°`
+        }
+      }
+    },
+    plugins: {
+      legend: { display: false }
+    }
+  }
+});
+function fillExtraInfo(id, dataArray) {
+  const row = document.getElementById(id);
+  row.innerHTML = '';
+  dataArray.forEach(data => {
+    const div = document.createElement('div');
+    div.innerText = data;
+    row.appendChild(div);
+  });
+}
+
+fillExtraInfo('descriptionRow', weatherDesc);
+fillExtraInfo('windRow', windSpeeds);
+fillExtraInfo('precipRow', precipitation);
+
+  </script>
+</body>
+</html>
